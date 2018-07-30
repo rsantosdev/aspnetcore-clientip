@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  aspnetremoteipinfo:
+    image: ${DOCKER_REGISTRY}aspnetremoteipinfo
+    build:
+      context: .
+      dockerfile: AspnetRemoteIpInfo/Dockerfile
