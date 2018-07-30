@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 
 namespace AspnetRemoteIpInfo.Controllers
 {
@@ -14,7 +15,8 @@ namespace AspnetRemoteIpInfo.Controllers
         {
             return Ok(new
             {
-                ClientIp = HttpContext.Connection.RemoteIpAddress.ToString()
+                ClientIpHttpContext = HttpContext.Connection.RemoteIpAddress.ToString(),
+                ClientIpHeader = Request.Headers["X-Client-IP"].ToString()
             });
         }
     }
